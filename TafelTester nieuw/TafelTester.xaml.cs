@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,7 +30,7 @@ namespace TafelTester_nieuw
 
         private int test1;
         private int level;
-        private int lastAnswer;
+        private double lastAnswer;
         private int questionsLeft = 10;
         private int score = 0;
         private string[] rekenen = { "1", "x", ":", "-", "+" };
@@ -72,7 +72,8 @@ namespace TafelTester_nieuw
                 }
                 if (test1 == 2) {
                     Question.Content = $"Wat is {num01 * level} : {num02 * level}";
-                    lastAnswer = ((num01 * level) / (num02 * level));
+                    Debug.WriteLine($"num01={num01}, num02={num02}");
+                    lastAnswer = (Math.Floor(((double)num01 * level) / ((double)num02 * level) * 100) / 100);
                     questionsLeft--;
                 }
                 if (test1 == 3)
